@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Exo2EgoHOI: Hand-Object-Interaction Aware Exocentric-to-Egocentric Video Generation. Research by Hongjia Zhai and collaborators at MBZUAI, Zhejiang University, and InSpatio.">
+    <title>Exo2EgoHOI | Project Page</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script defer src="assets/scenes.js"></script>
+    <script defer src="assets/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="paper-header" id="top">
+      <h1 id="page-title"><strong>Exo2EgoHOI:</strong> Hand-Object-Interaction Aware Exocentric-to-Egocentric Video Generation</h1>
+      <p class="paper-authors">
+        <span><a href="https://scholar.google.com/citations?user=alXpF8wAAAAJ" target="_blank" rel="noopener noreferrer">Hongjia Zhai</a><sup>1</sup>,</span>
+        <span><a href="https://scholar.google.com/citations?user=4daSiAwAAAAJ" target="_blank" rel="noopener noreferrer">Xiyu Zhang</a><sup>2</sup>,</span>
+        <span><a href="https://scholar.google.com/citations?user=BrA5fjoAAAAJ" target="_blank" rel="noopener noreferrer">Haoran Zhang</a><sup>1</sup>,</span>
+        <span><a href="https://scholar.google.com/citations?user=EFs5B9IAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Zhichao Ye</a><sup>3</sup>,</span>
+        <span><a href="https://scholar.google.com/citations?user=SeErxokAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Haomin Liu</a><sup>3</sup>,</span>
+        <span><a href="https://scholar.google.com/citations?user=F0xfpXAAAAAJ" target="_blank" rel="noopener noreferrer">Guofeng Zhang</a><sup>2,3</sup>,</span>
+        <span><a href="https://scholar.google.com/citations?user=ATkNLcQAAAAJ" target="_blank" rel="noopener noreferrer">Ian Reid</a><sup>1</sup>,</span>
+        <span><a href="https://scholar.google.com/citations?user=CePv8agAAAAJ" target="_blank" rel="noopener noreferrer">Xingxing Zuo</a><sup>1</sup></span>
+      </p>
+      <p class="paper-affiliations"><span><sup>1</sup>MBZUAI</span><span><sup>2</sup>Zhejiang University</span><span><sup>3</sup>InSpatio</span></p>
+      <div class="paper-links" role="group" aria-label="Paper and project links">
+        <span class="paper-link paper-link-pending" title="The arXiv link will be added after publication">arXiv · coming soon</span>
+        <span class="paper-link paper-link-pending" title="An updated PDF will be linked after the project-page address is corrected">Paper PDF · coming soon</span>
+        <a class="paper-link" href="https://github.com/RCL-Robotics/Exo2EgoHOI" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span class="paper-link paper-link-pending" title="The code link will be added when available">Code · coming soon</span>
+      </div>
+      <aside class="paper-tldr" aria-label="Paper summary">
+        <span class="tldr-badge">TL;DR</span>
+        <p>Exo2EgoHOI generates first-person manipulation videos from third-person demonstrations while preserving hand-object interactions using a unified 4D HOI prior and object-centric attention.</p>
+      </aside>
+    </header>
+
+    <main id="main">
+      <section class="content-section overview-section" id="overview" aria-labelledby="overview-title">
+        <h2 id="overview-title">Overview</h2>
+        <figure class="method-figure teaser-figure">
+          <div class="method-image-wrap"><a href="assets/teaser.webp" target="_blank" rel="noopener" aria-label="Open full-size teaser figure"><img src="assets/teaser.webp" width="2777" height="745" alt="Exocentric human demonstration is translated by Exo2EgoHOI into egocentric views and retargeted to a robot executing the same manipulation." decoding="async"></a></div>
+          <figcaption>Exo2EgoHOI translates exocentric human demonstrations into egocentric observations that can guide robot execution through retargeting.</figcaption>
+        </figure>
+        <div class="abstract-section">
+          <h2>Abstract</h2>
+          <p>Egocentric videos of human manipulation provide valuable visual experience for embodied intelligence, yet collecting such data at scale is costly. Exocentric-to-egocentric video generation offers a scalable alternative by transforming abundant third-person manipulation videos into first-person observations. However, existing methods often struggle to faithfully preserve demonstrated hand-object interactions (HOI) across large viewpoint changes due to insufficient fine-grained interaction guidance and weak object-centric anchoring. We present Exo2EgoHOI, an HOI-aware video generative framework for interaction-preserving exocentric-to-egocentric translation. To preserve fine-grained HOI, we introduce a unified 4D HOI prior that combines scene geometry, articulated hand renderings, and dense hand-object relation fields, together with a dual-branch residual adapter for injecting structural and relational cues into the video generation backbone. To preserve object consistency, we introduce Decomposed Gated Cross-Attention, which separately encodes object and background references and adaptively integrates global semantic and local appearance features as object-centric anchors. Experiments on ARCTIC-HOI and Ego-Exo4D demonstrate substantial improvements in object consistency and HOI preservation while maintaining competitive visual fidelity. In particular, on ARCTIC-HOI, Exo2EgoHOI improves object mIoU by 32.3% and reduces MPJPE and PA-MPJPE by 34.7% and 50.0%, respectively, relative to the respective best baseline results.</p>
+        </div>
+        <h2 class="method-section-heading">Method overview</h2>
+        <figure class="method-figure pipeline-figure">
+          <div class="method-image-wrap"><a href="assets/pipeline.webp" target="_blank" rel="noopener" aria-label="Open full-size method overview figure"><img src="assets/pipeline.webp" width="3010" height="1087" alt="Exo2EgoHOI pipeline: exocentric video, world-space 4D HOI, unified scene, hand, and interaction priors, HOI adapters, object and background anchors, video DiT, and egocentric output." loading="lazy" decoding="async"></a></div>
+          <figcaption>A unified 4D HOI prior guides scene geometry, hand motion, and interactions. HOI adapters inject these cues into the video model, while Decomposed Gated Cross-Attention uses object and background references to preserve appearance.</figcaption>
+        </figure>
+      </section>
+
+      <section class="content-section gallery-section" id="gallery" aria-labelledby="gallery-title">
+        <div class="section-heading">
+          <h2 id="gallery-title">Qualitative comparisons</h2>
+          <p class="heading-note">Select one of 20 qualitative examples. The comparison, hand mesh, and hand error videos play together at 10 fps.</p>
+        </div>
+
+        <div class="gallery-shell">
+          <p class="gallery-status" id="gallery-status" role="status" aria-live="polite">Loading scene…</p>
+          <div class="scene-panels" id="scene-panels"></div>
+          <template id="scene-panel-template">
+            <article class="scene-panel">
+              <div class="scene-panel-top">
+                <div class="scene-navigation">
+                  <div class="scene-fields">
+                    <label>Choose a scene
+                      <select class="scene-select"></select>
+                    </label>
+                  </div>
+                  <div class="scene-select-row">
+                    <button type="button" class="icon-button previous-scene" aria-label="Previous scene" title="Previous scene">←</button>
+                    <button type="button" class="icon-button next-scene" aria-label="Next scene" title="Next scene">→</button>
+                    <span class="scene-count"></span>
+                  </div>
+                </div>
+                <span class="panel-play-state">Paused</span>
+              </div>
+              <div class="scene-heading">
+                <h3 class="scene-title">Loading scene…</h3>
+              </div>
+              <p class="scroll-hint">Scroll sideways to see all columns <span aria-hidden="true">→</span></p>
+            <div class="comparison-scroll" tabindex="0" aria-label="Three synchronized video rows in seven aligned columns; scroll horizontally on narrow screens">
+              <div class="comparison-stack">
+                <h4 class="comparison-row-title">Video comparison</h4>
+                <div class="comparison-row comparison-main-row">
+                  <div class="video-card"><div class="video-label"><span class="method-number">01</span><span>Exocentric Input</span></div><div class="video-viewport"><video class="comparison-video" muted playsinline preload="metadata" aria-label="Exocentric Input comparison video"></video><span class="video-error" hidden>Video unavailable</span></div></div>
+                  <div class="video-card"><div class="video-label"><span class="method-number">02</span><span>EgoWorld</span></div><div class="video-viewport"><video class="comparison-video" muted playsinline preload="metadata" aria-label="EgoWorld comparison video"></video><span class="video-error" hidden>Video unavailable</span></div></div>
+                  <div class="video-card"><div class="video-label"><span class="method-number">03</span><span>Vista4D</span></div><div class="video-viewport"><video class="comparison-video" muted playsinline preload="metadata" aria-label="Vista4D comparison video"></video><span class="video-error" hidden>Video unavailable</span></div></div>
+                  <div class="video-card"><div class="video-label"><span class="method-number">04</span><span>WAN VACE</span></div><div class="video-viewport"><video class="comparison-video" muted playsinline preload="metadata" aria-label="WAN VACE comparison video"></video><span class="video-error" hidden>Video unavailable</span></div></div>
+                  <div class="video-card"><div class="video-label"><span class="method-number">05</span><span>EgoX</span></div><div class="video-viewport"><video class="comparison-video" muted playsinline preload="metadata" aria-label="EgoX comparison video"></video><span class="video-error" hidden>Video unavailable</span></div></div>
+                  <div class="video-card video-card-ours"><div class="video-label"><span class="method-number">06</span><span>Ours</span></div><div class="video-viewport"><video class="comparison-video" muted playsinline preload="metadata" aria-label="Ours comparison video"></video><span class="video-error" hidden>Video unavailable</span></div></div>
+                  <div class="video-card"><div class="video-label"><span class="method-number">07</span><span>Ego_GT</span></div><div class="video-viewport"><video class="comparison-video" muted playsinline preload="metadata" aria-label="Ego_GT comparison video"></video><span class="video-error" hidden>Video unavailable</span></div></div>
+                </div>
+                <h4 class="comparison-row-title">Hand mesh</h4>
+                <div class="comparison-row hand-mesh-row">
+                  <div class="row-spacer" aria-hidden="true"></div>
+                  <div class="video-card mesh-card"><div class="video-label"><span class="method-number">02</span><span>EgoWorld</span></div><div class="video-viewport"><video class="hand-mesh-video" muted playsinline preload="metadata" aria-label="EgoWorld hand mesh video"></video><span class="video-error" hidden>Hand-mesh video unavailable</span></div></div>
+                  <div class="video-card mesh-card"><div class="video-label"><span class="method-number">03</span><span>Vista4D</span></div><div class="video-viewport"><video class="hand-mesh-video" muted playsinline preload="metadata" aria-label="Vista4D hand mesh video"></video><span class="video-error" hidden>Hand-mesh video unavailable</span></div></div>
+                  <div class="video-card mesh-card"><div class="video-label"><span class="method-number">04</span><span>WAN VACE</span></div><div class="video-viewport"><video class="hand-mesh-video" muted playsinline preload="metadata" aria-label="WAN VACE hand mesh video"></video><span class="video-error" hidden>Hand-mesh video unavailable</span></div></div>
+                  <div class="video-card mesh-card"><div class="video-label"><span class="method-number">05</span><span>EgoX</span></div><div class="video-viewport"><video class="hand-mesh-video" muted playsinline preload="metadata" aria-label="EgoX hand mesh video"></video><span class="video-error" hidden>Hand-mesh video unavailable</span></div></div>
+                  <div class="video-card mesh-card video-card-ours"><div class="video-label"><span class="method-number">06</span><span>Ours</span></div><div class="video-viewport"><video class="hand-mesh-video" muted playsinline preload="metadata" aria-label="Ours hand mesh video"></video><span class="video-error" hidden>Hand-mesh video unavailable</span></div></div>
+                  <div class="video-card mesh-card"><div class="video-label"><span class="method-number">07</span><span>Ego_GT</span></div><div class="video-viewport"><video class="hand-mesh-video" muted playsinline preload="metadata" aria-label="Ego_GT hand mesh video"></video><span class="video-error" hidden>Hand-mesh video unavailable</span></div></div>
+                </div>
+                <h4 class="comparison-row-title">Hand error</h4>
+                <div class="comparison-row hand-error-row">
+                  <div class="row-spacer" aria-hidden="true"></div>
+                  <div class="video-card hand-error-card"><div class="video-label"><span class="method-number">02</span><span>EgoWorld</span></div><div class="video-viewport"><video class="hand-error-video" muted playsinline preload="metadata" aria-label="EgoWorld hand error video"></video><span class="video-error" hidden>Hand-error video unavailable</span></div></div>
+                  <div class="video-card hand-error-card"><div class="video-label"><span class="method-number">03</span><span>Vista4D</span></div><div class="video-viewport"><video class="hand-error-video" muted playsinline preload="metadata" aria-label="Vista4D hand error video"></video><span class="video-error" hidden>Hand-error video unavailable</span></div></div>
+                  <div class="video-card hand-error-card"><div class="video-label"><span class="method-number">04</span><span>WAN VACE</span></div><div class="video-viewport"><video class="hand-error-video" muted playsinline preload="metadata" aria-label="WAN VACE hand error video"></video><span class="video-error" hidden>Hand-error video unavailable</span></div></div>
+                  <div class="video-card hand-error-card"><div class="video-label"><span class="method-number">05</span><span>EgoX</span></div><div class="video-viewport"><video class="hand-error-video" muted playsinline preload="metadata" aria-label="EgoX hand error video"></video><span class="video-error" hidden>Hand-error video unavailable</span></div></div>
+                  <div class="video-card hand-error-card video-card-ours"><div class="video-label"><span class="method-number">06</span><span>Ours</span></div><div class="video-viewport"><video class="hand-error-video" muted playsinline preload="metadata" aria-label="Ours hand error video"></video><span class="video-error" hidden>Hand-error video unavailable</span></div></div>
+                  <div class="row-spacer" aria-hidden="true"></div>
+                </div>
+              </div>
+            </div>
+            <p class="mesh-note">Hand mesh colors: left orange, right blue. Blank frames show no visible mesh.</p>
+            <div class="hand-error-legend" aria-label="Hand-error visualization legend">
+              <p><strong>Hand error:</strong> Mesh-vertex error relative to a WiLoR-based estimate of Ego_GT. Only same-side matched hands are colored; unmatched frames are blank.</p>
+              <div class="colorbar-wrap"><img src="assets/error_map_colorbar.png" width="1600" height="230" alt="Error-map colorbar: blue indicates low error and red indicates high error" loading="lazy"></div>
+              <p class="colorbar-note">Colors show relative error within each clip, method, and hand; they cannot be compared across videos or read as millimeters.</p>
+            </div>
+              <div class="playback-toolbar" aria-label="Synchronized playback controls for this scene">
+                <button type="button" class="play-button play-pause" aria-label="Play scene videos">Play <span aria-hidden="true">▶</span></button>
+                <button type="button" class="replay-button replay" aria-label="Restart scene videos">↺ <span>Replay</span></button>
+                <input class="timeline" type="range" min="0" max="4.9" step="0.01" value="0" aria-label="Playback position for this scene">
+                <span class="time-display">0.0 / 4.9 s</span>
+              </div>
+              <p class="playback-status" role="status" aria-live="polite"></p>
+            </article>
+          </template>
+        </div>
+      </section>
+
+      <section class="content-section metrics-section" id="quantitative" aria-labelledby="metrics-title">
+        <div class="section-heading">
+          <h2 id="metrics-title">Quantitative comparisons</h2>
+          <p class="heading-note">Full test sets. Best values are bold; second-best values are underlined.</p>
+        </div>
+
+        <div class="metric-block">
+          <div class="metric-block-heading"><h3>ARCTIC-HOI</h3></div>
+          <div class="table-scroll" tabindex="0" aria-label="Scroll ARCTIC-HOI metrics horizontally">
+            <table class="metrics-table">
+              <caption>ARCTIC-HOI quantitative results. Higher is better for PSNR, SSIM, CLIP-I, mIoU, and CLIP-O; lower is better for the remaining metrics.</caption>
+              <thead><tr class="group-row"><th rowspan="2" scope="col">Method</th><th colspan="4" scope="colgroup">Visual fidelity</th><th colspan="3" scope="colgroup">Object consistency</th><th colspan="3" scope="colgroup">Hand consistency</th></tr><tr><th scope="col">PSNR ↑</th><th scope="col">SSIM ↑</th><th scope="col">LPIPS ↓</th><th scope="col">CLIP-I ↑</th><th scope="col">mIoU ↑</th><th scope="col">Center-Err. ↓</th><th scope="col">CLIP-O ↑</th><th scope="col">MPJPE ↓</th><th scope="col">WA-MPJPE ↓</th><th scope="col">PA-MPJPE ↓</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">WAN VACE</th><td>12.78</td><td>0.6163</td><td>0.5115</td><td>0.8485</td><td>0.2336</td><td>0.0893</td><td>0.8080</td><td>2870.22</td><td>371.18</td><td class="second">20.36</td></tr>
+                <tr><th scope="row">EgoWorld</th><td>11.90</td><td>0.4652</td><td>0.6203</td><td>0.7995</td><td>0.2241</td><td>0.1131</td><td>0.7869</td><td>2282.03</td><td>440.60</td><td>57.92</td></tr>
+                <tr><th scope="row">Vista4D</th><td class="best">13.58</td><td class="second">0.6614</td><td class="second">0.4324</td><td>0.8737</td><td>0.2768</td><td>0.0929</td><td>0.8176</td><td>2123.78</td><td>387.73</td><td>28.91</td></tr>
+                <tr><th scope="row">EgoX</th><td>11.83</td><td>0.5941</td><td>0.4743</td><td class="second">0.8910</td><td class="second">0.2933</td><td class="second">0.0804</td><td class="second">0.8345</td><td class="second">2019.81</td><td class="second">325.56</td><td>22.12</td></tr>
+                <tr class="ours-row"><th scope="row">Ours</th><td class="second">13.43</td><td class="best">0.6685</td><td class="best">0.3860</td><td class="best">0.9175</td><td class="best">0.3881</td><td class="best">0.0583</td><td class="best">0.8557</td><td class="best">1318.74</td><td class="best">313.75</td><td class="best">10.18</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="metric-block">
+          <div class="metric-block-heading"><h3>Ego-Exo4D</h3></div>
+          <div class="table-scroll" tabindex="0" aria-label="Scroll Ego-Exo4D metrics horizontally">
+            <table class="metrics-table">
+              <caption>Ego-Exo4D quantitative results. Higher is better for PSNR, SSIM, CLIP-I, mIoU, and CLIP-O; lower is better for the remaining metrics.</caption>
+              <thead><tr class="group-row"><th rowspan="2" scope="col">Method</th><th colspan="4" scope="colgroup">Visual fidelity</th><th colspan="3" scope="colgroup">Object consistency</th><th colspan="3" scope="colgroup">Hand consistency</th></tr><tr><th scope="col">PSNR ↑</th><th scope="col">SSIM ↑</th><th scope="col">LPIPS ↓</th><th scope="col">CLIP-I ↑</th><th scope="col">mIoU ↑</th><th scope="col">Center-Err. ↓</th><th scope="col">CLIP-O ↑</th><th scope="col">MPJPE ↓</th><th scope="col">WA-MPJPE ↓</th><th scope="col">PA-MPJPE ↓</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">WAN VACE</th><td>12.67</td><td>0.4161</td><td>0.5981</td><td>0.8251</td><td>0.0362</td><td>0.2214</td><td>0.8003</td><td>6810.62</td><td>2163.18</td><td class="best">74.00</td></tr>
+                <tr><th scope="row">EgoWorld</th><td>11.05</td><td>0.3410</td><td>0.7186</td><td>0.7220</td><td>0.0227</td><td>0.2349</td><td>0.7911</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><th scope="row">Vista4D</th><td>10.46</td><td>0.2684</td><td>0.7348</td><td>0.7459</td><td>0.0154</td><td>0.2571</td><td>0.8067</td><td>20074.43</td><td>2293.86</td><td>120.68</td></tr>
+                <tr><th scope="row">EgoX</th><td class="second">13.14</td><td class="second">0.4474</td><td class="second">0.5258</td><td class="second">0.8563</td><td class="second">0.0703</td><td class="second">0.1842</td><td class="second">0.8298</td><td class="second">5773.68</td><td class="second">1928.07</td><td class="second">75.55</td></tr>
+                <tr class="ours-row"><th scope="row">Ours</th><td class="best">14.11</td><td class="best">0.4690</td><td class="best">0.5035</td><td class="best">0.8665</td><td class="best">0.0723</td><td class="best">0.1745</td><td class="best">0.8341</td><td class="best">5208.17</td><td class="best">1749.36</td><td>93.81</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  </body>
+</html>
