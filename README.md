@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  arXiv (coming soon) · Paper PDF (updated file pending) · Project Page (link pending) · <a href="https://github.com/RCL-Robotics/Exo2EgoHOI">GitHub</a>
+  arXiv (coming soon) · Paper PDF (updated file pending) · <a href="https://rcl-robotics.github.io/Exo2EgoHOI/">Project Page</a> · <a href="https://github.com/RCL-Robotics/Exo2EgoHOI">GitHub</a>
 </p>
 
 ![Exo2EgoHOI overview](website/assets/teaser.webp)
